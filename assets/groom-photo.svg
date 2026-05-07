@@ -29,5 +29,4 @@
     <circle cx="314" cy="232" r="5" fill="#2b201e" opacity=".55"/>
     <path d="M259 273c19 14 48 12 67-3" fill="none" stroke="#935a49" stroke-width="4" stroke-linecap="round" opacity=".3"/>
   </g>
-  <text x="260" y="665" text-anchor="middle" fill="#1d88a4" font-family="Comic Sans MS, cursive" font-size="50">муженёчек</text>
 </svg>

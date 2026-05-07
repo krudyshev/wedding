@@ -506,25 +506,30 @@ h1 {
   pointer-events: none;
   background: rgba(255, 249, 217, 0.98);
   box-shadow: 0 28px 80px rgba(23, 19, 15, 0.28);
-  transform: translate(115%, -50%) rotate(2deg);
+  transform: translateX(calc(100% + 36px)) translateY(-50%) rotate(2deg);
   transition: transform 240ms ease;
 }
 
 .photo-drawer--left {
   right: auto;
   left: 18px;
-  transform: translate(-115%, -50%) rotate(-2deg);
+  transform: translateX(calc(-100% - 36px)) translateY(-50%) rotate(-2deg);
 }
 
 .photo-drawer--right {
   right: 18px;
   left: auto;
+  transform: translateX(calc(100% + 36px)) translateY(-50%) rotate(2deg);
 }
 
 .photo-drawer.is-open {
   visibility: visible;
   pointer-events: auto;
-  transform: translate(0, -50%) rotate(0deg);
+}
+
+.photo-drawer--left.is-open,
+.photo-drawer--right.is-open {
+  transform: translateX(0) translateY(-50%) rotate(0deg);
 }
 
 .photo-drawer__close {
@@ -544,23 +549,6 @@ h1 {
   line-height: 1;
 }
 
-.photo-drawer__eyebrow {
-  margin: 0 48px 0 0;
-  color: var(--blue);
-  font-family: "Caveat", cursive;
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.photo-drawer__title {
-  margin: 0 48px 14px 0;
-  color: var(--pink);
-  font-family: "Marck Script", cursive;
-  font-size: clamp(3rem, 8vw, 4.7rem);
-  font-weight: 400;
-  line-height: 0.9;
-}
-
 .photo-drawer__image {
   display: block;
   width: 100%;
@@ -572,13 +560,6 @@ h1 {
   box-shadow: 0 16px 36px rgba(65, 43, 32, 0.16);
 }
 
-.photo-drawer__caption {
-  margin: 14px 0 0;
-  font-family: "Caveat", cursive;
-  font-size: 1.8rem;
-  font-weight: 700;
-  line-height: 1;
-}
 
 .rsvp {
   text-align: center;
@@ -722,16 +703,13 @@ h1 {
     transform: translateY(calc(100% + 24px));
   }
 
-  .photo-drawer.is-open {
+  .photo-drawer--left.is-open,
+  .photo-drawer--right.is-open {
     transform: translateY(0);
   }
 
   .photo-drawer__image {
     max-height: 48vh;
-  }
-
-  .photo-drawer__caption {
-    font-size: 1.55rem;
   }
 
   .doodle-ring--top,
