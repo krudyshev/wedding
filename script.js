@@ -31,6 +31,8 @@ function openDrawer(personKey) {
   title.textContent = person.title;
   caption.textContent = person.caption;
 
+  drawer.classList.remove('photo-drawer--left', 'photo-drawer--right');
+  drawer.classList.add(`photo-drawer--${personKey === 'bride' ? 'left' : 'right'}`);
   drawer.classList.add('is-open');
   drawer.setAttribute('aria-hidden', 'false');
   backdrop.hidden = false;
@@ -43,6 +45,7 @@ function openDrawer(personKey) {
 
 function closeDrawer() {
   drawer.classList.remove('is-open');
+  drawer.classList.remove('photo-drawer--left', 'photo-drawer--right');
   drawer.setAttribute('aria-hidden', 'true');
   backdrop.hidden = true;
   document.body.classList.remove('drawer-open');
