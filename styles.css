@@ -140,117 +140,122 @@ h1 {
   background: rgba(196, 72, 141, 0.25);
 }
 
-.couple-grid {
+.hero-ornaments {
   position: absolute;
-  inset: auto 0 0;
+  right: clamp(18px, 5vw, 54px);
+  bottom: clamp(22px, 5vw, 54px);
+  left: clamp(18px, 5vw, 54px);
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: end;
+  gap: 24px;
   pointer-events: none;
 }
 
-.person {
+.name-card {
   position: relative;
-  min-width: 240px;
+  display: grid;
+  width: min(34vw, 310px);
+  min-height: 160px;
+  place-items: center;
+  padding: 34px 26px;
+  border: 2px solid rgba(196, 72, 141, 0.22);
+  border-radius: 32px 32px 42px 20px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(255, 249, 217, 0.34)),
+    radial-gradient(circle at 18% 20%, rgba(196, 72, 141, 0.18), transparent 2.4rem);
+  box-shadow: 0 18px 38px rgba(65, 43, 32, 0.12);
+  transform: rotate(-4deg);
 }
 
-.person--bride {
-  align-self: start;
-  margin-right: 28px;
-  order: 2;
-  transform: translateY(-260px);
+.name-card--groom {
+  border-color: rgba(29, 136, 164, 0.26);
+  border-radius: 32px 32px 20px 42px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.56), rgba(255, 249, 217, 0.32)),
+    radial-gradient(circle at 82% 20%, rgba(29, 136, 164, 0.18), transparent 2.6rem);
+  transform: rotate(4deg);
 }
 
-.person--groom {
-  margin-left: 8px;
-  transform: translateY(18px);
-}
-
-.person__tag {
-  position: absolute;
-  z-index: 2;
-  color: var(--pink);
-  font-family: "Marck Script", cursive;
-  font-size: 2.4rem;
-  transform: rotate(-18deg);
-}
-
-.person--bride .person__tag {
-  top: -32px;
-  left: 42px;
-}
-
-.person--groom .person__tag {
-  top: -44px;
-  left: 30px;
-  color: var(--blue);
-}
-
-.portrait {
-  position: relative;
-  width: 260px;
-  height: 350px;
-  filter: drop-shadow(0 18px 24px rgba(40, 24, 18, 0.18));
-}
-
-.portrait::before,
-.portrait::after,
-.portrait__face {
+.name-card::before,
+.name-card::after,
+.name-card__accent::before,
+.name-card__accent::after {
   position: absolute;
   content: "";
 }
 
-.portrait__face {
-  top: 48px;
-  left: 96px;
-  width: 74px;
-  height: 94px;
-  border-radius: 48% 48% 46% 46%;
-  background: #f4d0b7;
-  box-shadow: inset -8px -4px 0 rgba(148, 82, 62, 0.08);
-}
-
-.portrait--bride::before {
+.name-card::before {
   top: 18px;
-  left: 58px;
-  width: 160px;
-  height: 210px;
-  border-radius: 48% 48% 42% 42%;
-  background: #2b201e;
-  transform: rotate(-10deg);
+  left: 22px;
+  width: 96px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.45;
+  transform: rotate(-18deg);
 }
 
-.portrait--bride::after {
-  right: 8px;
-  bottom: 14px;
-  width: 210px;
-  height: 210px;
-  border-radius: 58% 42% 0 0;
-  background: linear-gradient(135deg, #e02d72, #ab164d 55%, #291a1d 56%);
-  transform: rotate(18deg);
+.name-card::after {
+  right: 24px;
+  bottom: 22px;
+  width: 112px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.38;
+  transform: rotate(-18deg);
 }
 
-.portrait--groom::before {
-  top: 44px;
-  left: 82px;
-  width: 120px;
-  height: 105px;
-  border-radius: 48% 48% 40% 40%;
-  background: #302119;
-  transform: rotate(10deg);
+.name-card--bride {
+  color: var(--pink);
 }
 
-.portrait--groom::after {
-  bottom: -24px;
-  left: -10px;
-  width: 280px;
-  height: 250px;
-  border-radius: 48% 52% 0 0;
-  background:
-    linear-gradient(128deg, #f7f7f5 0 30%, transparent 30%),
-    linear-gradient(52deg, transparent 0 37%, #2c2a30 37% 78%, #f7f7f5 78%),
-    linear-gradient(135deg, #5b4a3f, #1f2026);
-  transform: rotate(-8deg);
+.name-card--groom {
+  color: var(--blue);
+}
+
+.name-card__label {
+  position: relative;
+  z-index: 1;
+  color: currentColor;
+  font-family: "Marck Script", cursive;
+  font-size: clamp(2.7rem, 7vw, 5.4rem);
+  line-height: 0.88;
+  text-shadow: 0 4px 0 rgba(255, 255, 255, 0.62);
+  transform: rotate(-4deg);
+}
+
+.name-card--groom .name-card__label {
+  transform: rotate(3deg);
+}
+
+.name-card__accent {
+  position: absolute;
+  inset: 0;
+}
+
+.name-card__accent::before {
+  top: -18px;
+  right: 30px;
+  width: 70px;
+  height: 120px;
+  border-right: 4px solid currentColor;
+  border-bottom: 4px solid currentColor;
+  border-radius: 0 0 90px 0;
+  opacity: 0.45;
+  transform: rotate(36deg);
+}
+
+.name-card__accent::after {
+  bottom: 22px;
+  left: 28px;
+  width: 58px;
+  height: 84px;
+  border-left: 4px solid currentColor;
+  border-top: 4px solid currentColor;
+  border-radius: 90px 0 0;
+  opacity: 0.34;
+  transform: rotate(20deg);
 }
 
 .section-heading {
@@ -350,47 +355,21 @@ h1 {
 
 .rsvp p {
   max-width: 760px;
-  margin: 10px auto 28px;
+  margin: 10px auto 0;
+}
+
+.rsvp::after {
+  display: block;
+  width: min(360px, 70vw);
+  height: 10px;
+  margin: 28px auto 0;
+  border-radius: 999px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(29, 136, 164, 0.62), transparent);
 }
 
 .rsvp strong {
   color: var(--pink-deep);
-}
-
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  justify-content: center;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 170px;
-  padding: 15px 24px;
-  border: 2px solid var(--blue);
-  border-radius: 999px;
-  font-weight: 800;
-  text-decoration: none;
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.button:hover,
-.button:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(8, 103, 127, 0.18);
-}
-
-.button--primary {
-  color: #fff;
-  background: var(--blue);
-}
-
-.button--ghost {
-  color: var(--blue-deep);
-  background: transparent;
 }
 
 .doodle {
@@ -411,15 +390,6 @@ h1 {
   height: 74px;
   color: var(--pink);
   transform: rotate(-18deg);
-}
-
-.doodle-ring--bottom {
-  right: 17%;
-  bottom: 24px;
-  width: min(420px, 68vw);
-  height: 92px;
-  color: var(--blue);
-  transform: rotate(-3deg);
 }
 
 .doodle-heart {
@@ -451,56 +421,14 @@ h1 {
     margin-bottom: 24px;
   }
 
-  .couple-grid {
-    opacity: 0.9;
+  .hero-ornaments {
+    align-items: stretch;
   }
 
-  .portrait {
-    width: 180px;
-    height: 245px;
-  }
-
-  .portrait__face {
-    top: 34px;
-    left: 66px;
-    width: 52px;
-    height: 66px;
-  }
-
-  .portrait--bride::before {
-    top: 14px;
-    left: 42px;
-    width: 112px;
-    height: 148px;
-  }
-
-  .portrait--bride::after {
-    width: 146px;
-    height: 148px;
-  }
-
-  .portrait--groom::before {
-    top: 32px;
-    left: 56px;
-    width: 86px;
-    height: 74px;
-  }
-
-  .portrait--groom::after {
-    width: 196px;
-    height: 176px;
-  }
-
-  .person--bride {
-    transform: translateY(-140px);
-  }
-
-  .person {
-    min-width: 150px;
-  }
-
-  .person__tag {
-    font-size: 1.8rem;
+  .name-card {
+    width: min(44vw, 260px);
+    min-height: 132px;
+    padding: 26px 18px;
   }
 
   .event-card,
@@ -518,20 +446,21 @@ h1 {
     min-height: 700px;
   }
 
-  .person--bride {
-    margin-right: -30px;
+  .hero-ornaments {
+    position: relative;
+    inset: auto;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 28px;
   }
 
-  .person--groom {
-    margin-left: -36px;
+  .name-card {
+    width: 100%;
+    min-height: 118px;
   }
 
   .doodle-ring--top,
   .doodle-heart {
     display: none;
-  }
-
-  .button {
-    width: 100%;
   }
 }
