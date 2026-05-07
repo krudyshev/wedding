@@ -31,12 +31,15 @@ function openDrawer(personKey) {
   title.textContent = person.title;
   caption.textContent = person.caption;
 
-  drawer.classList.remove('photo-drawer--left', 'photo-drawer--right');
+  drawer.classList.remove('is-open', 'photo-drawer--left', 'photo-drawer--right');
   drawer.classList.add(`photo-drawer--${personKey === 'bride' ? 'left' : 'right'}`);
-  drawer.classList.add('is-open');
   drawer.setAttribute('aria-hidden', 'false');
   backdrop.hidden = false;
   document.body.classList.add('drawer-open');
+
+  requestAnimationFrame(() => {
+    drawer.classList.add('is-open');
+  });
 
   nameButtons.forEach((button) => {
     button.setAttribute('aria-expanded', String(button.dataset.person === personKey));
