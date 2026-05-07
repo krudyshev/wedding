@@ -1,11 +1,11 @@
 const people = {
   bride: {
-    src: 'assets/bride-photo.svg',
+    src: 'bride.png',
     alt: 'Фото жинки',
     caption: 'главная красавица свадьбы'
   },
   groom: {
-    src: 'assets/groom-photo.svg',
+    src: 'groom.png',
     alt: 'Фото муженёчка',
     caption: 'главный виновник торжества'
   }
