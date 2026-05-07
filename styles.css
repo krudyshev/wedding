@@ -107,6 +107,30 @@ h1 {
   text-shadow: 0 5px 0 rgba(196, 72, 141, 0.08);
 }
 
+.confetti-trigger {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  background: transparent;
+  font: inherit;
+  line-height: inherit;
+  text-transform: inherit;
+  text-shadow: inherit;
+}
+
+.confetti-trigger:hover,
+.confetti-trigger:focus-visible {
+  color: var(--pink-deep);
+}
+
+.confetti-trigger:focus-visible {
+  outline: 4px solid rgba(196, 72, 141, 0.2);
+  outline-offset: 8px;
+  border-radius: 24px;
+}
+
 .intro {
   position: relative;
   z-index: 1;
@@ -544,6 +568,60 @@ h1 {
   border-radius: 28px;
   background: var(--paper);
   box-shadow: 0 16px 36px rgba(65, 43, 32, 0.16);
+}
+
+.photo-drawer__caption {
+  margin: 14px 4px 0;
+  color: var(--pink-deep);
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.75rem, 5vw, 2.45rem);
+  font-weight: 700;
+  line-height: 0.95;
+  text-align: center;
+}
+
+.confetti-piece {
+  position: fixed;
+  top: -24px;
+  left: var(--start-x);
+  z-index: 40;
+  width: var(--piece-size);
+  height: calc(var(--piece-size) * 1.35);
+  border-radius: 4px;
+  pointer-events: none;
+  background: var(--confetti-color);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22) inset;
+  animation: confetti-fall var(--fall-duration) var(--fall-delay) linear forwards;
+}
+
+.confetti-piece--circle {
+  border-radius: 50%;
+}
+
+.confetti-piece--petal {
+  border-radius: 80% 20% 80% 20%;
+}
+
+.confetti-piece--ribbon {
+  width: calc(var(--piece-size) * 0.52);
+  height: calc(var(--piece-size) * 1.9);
+  border-radius: 999px;
+}
+
+@keyframes confetti-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -24px, 0) rotate(0deg);
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.92;
+    transform: translate3d(var(--drift), calc(100vh + 80px), 0) rotate(var(--spin));
+  }
 }
 
 
