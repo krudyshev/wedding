@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <main class="invite-shell" aria-labelledby="main-title">
@@ -33,14 +34,14 @@
         </div>
 
         <div class="hero-ornaments" aria-label="Пара">
-          <article class="name-card name-card--bride">
+          <button class="name-card name-card--bride" type="button" data-person="bride" aria-controls="photo-drawer" aria-expanded="false">
             <span class="name-card__accent" aria-hidden="true"></span>
             <span class="name-card__label">жинка</span>
-          </article>
-          <article class="name-card name-card--groom">
+          </button>
+          <button class="name-card name-card--groom" type="button" data-person="groom" aria-controls="photo-drawer" aria-expanded="false">
             <span class="name-card__accent" aria-hidden="true"></span>
             <span class="name-card__label">муженёчек</span>
-          </article>
+          </button>
         </div>
       </section>
 
@@ -142,5 +143,14 @@
         <p>Просьба подтвердить своё присутствие до <strong>01.06.2026</strong>.</p>
       </section>
     </main>
+
+    <div class="photo-backdrop" hidden></div>
+    <aside class="photo-drawer" id="photo-drawer" aria-hidden="true" aria-labelledby="photo-drawer-title">
+      <button class="photo-drawer__close" type="button" aria-label="Закрыть фото">×</button>
+      <p class="photo-drawer__eyebrow">знакомьтесь</p>
+      <h2 class="photo-drawer__title" id="photo-drawer-title">Жинка</h2>
+      <img class="photo-drawer__image" src="assets/bride-photo.svg" alt="Фото жинки" />
+      <p class="photo-drawer__caption">Нажмите на имя, чтобы увидеть фото.</p>
+    </aside>
   </body>
 </html>
