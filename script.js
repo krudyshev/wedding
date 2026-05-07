@@ -22,8 +22,10 @@ function openDrawer(personKey) {
 
   photo.src = person.src;
   photo.alt = person.alt;
-  drawer.classList.remove('is-open', 'photo-drawer--left', 'photo-drawer--right');
-  drawer.classList.add(`photo-drawer--${personKey === 'bride' ? 'left' : 'right'}`);
+  const directionClass = personKey === 'bride' ? 'photo-drawer--from-left' : 'photo-drawer--from-right';
+
+  drawer.classList.remove('is-open', 'photo-drawer--from-left', 'photo-drawer--from-right');
+  drawer.classList.add(directionClass);
   drawer.setAttribute('aria-hidden', 'false');
   backdrop.hidden = false;
   document.body.classList.add('drawer-open');
@@ -38,7 +40,7 @@ function openDrawer(personKey) {
 
 function closeDrawer() {
   drawer.classList.remove('is-open');
-  drawer.classList.remove('photo-drawer--left', 'photo-drawer--right');
+  drawer.classList.remove('photo-drawer--from-left', 'photo-drawer--from-right');
   drawer.setAttribute('aria-hidden', 'true');
   backdrop.hidden = true;
   document.body.classList.remove('drawer-open');
