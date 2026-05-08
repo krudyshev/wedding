@@ -1,4 +1,4 @@
-const assetVersion = '2026-05-08-5';
+const assetVersion = '2026-05-08-6';
 
 function versionedAsset(path) {
   return `${path}?v=${assetVersion}`;
@@ -6,14 +6,14 @@ function versionedAsset(path) {
 
 const people = {
   bride: {
-    src: versionedAsset('assets/bride-photo.svg'),
-    fallbackSrc: versionedAsset('assets/bride-photo.svg'),
+    src: versionedAsset('assets/bride.png'),
+    fallbackSrc: versionedAsset('assets/bride.png'),
     alt: 'Фото жинки',
     caption: 'главная красавица свадьбы'
   },
   groom: {
-    src: versionedAsset('assets/groom-photo.svg'),
-    fallbackSrc: versionedAsset('assets/groom-photo.svg'),
+    src: versionedAsset('assets/groom.png'),
+    fallbackSrc: versionedAsset('assets/groom.png'),
     alt: 'Фото муженёчка',
     caption: 'главный виновник торжества'
   }
