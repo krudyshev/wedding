@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Жинка</title>
+  <desc id="desc">Стилизованный портрет девушки с букетом тюльпанов на тёплом пастельном фоне.</desc>
+  <defs>
+    <linearGradient id="room" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffd5b3"/>
+      <stop offset=".55" stop-color="#ffc4a6"/>
+      <stop offset="1" stop-color="#f2ad9d"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#2b1d1d"/>
+      <stop offset=".55" stop-color="#4b2d27"/>
+      <stop offset="1" stop-color="#94624d"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f3d4bd"/>
+      <stop offset=".45" stop-color="#9b7469"/>
+      <stop offset="1" stop-color="#5a423f"/>
+    </linearGradient>
+    <filter id="soft" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#8f4d3f" flood-opacity=".2"/>
+    </filter>
+  </defs>
+  <rect width="900" height="900" fill="url(#room)"/>
+  <path d="M67 96h250v300H67z" fill="#ffe6be" opacity=".44"/>
+  <path d="M452 0v900" stroke="#ce8f7e" stroke-width="5" opacity=".16"/>
+  <path d="M45 420c20-22 43-21 61 3 16-26 45-29 62-8" fill="none" stroke="#fff1cf" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+  <g filter="url(#soft)">
+    <path d="M59 890c-25-176 25-281 147-319 110-34 238-5 330 75 68 59 96 138 90 244Z" fill="url(#shirt)"/>
+    <path d="M78 700c166-47 320-38 503 27" fill="none" stroke="#fff0d5" stroke-width="18" opacity=".48"/>
+    <path d="M184 168c95-105 256-93 306 20 46 104 0 251-115 308-74 36-152 25-214-13 26-76 17-150 23-315Z" fill="url(#hair)"/>
+    <path d="M304 143c97 4 165 73 170 164 4 82-44 144-112 161-58 14-118-11-150-62-43-69-33-194 92-263Z" fill="#ffbf99"/>
+    <path d="M213 195c62-70 145-93 250-49-46-60-155-87-233-38-76 48-105 153-88 248 13-70 26-121 71-161Z" fill="#2b1d1d"/>
+    <path d="M342 305c33 33 76 56 126 67" fill="none" stroke="#2b1d1d" stroke-width="7" opacity=".16"/>
+    <path d="M419 318c16 11 35 12 54 0" fill="none" stroke="#7d3e32" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+    <path d="M319 530c-20 51-30 104-32 159" fill="none" stroke="#5f4a42" stroke-width="4" opacity=".6"/>
+    <path d="M349 556c-8 40-10 82-7 127" fill="none" stroke="#5f4a42" stroke-width="4" opacity=".58"/>
+  </g>
+  <g transform="translate(462 390) rotate(8)">
+    <path d="M120 40c109 6 219 55 306 145 45 46 52 103 16 152-79 106-269 110-414 43-70-32-90-95-55-165C5 88 55 36 120 40Z" fill="#fff0db" opacity=".72"/>
+    <g stroke="#6f6d3f" stroke-width="10" stroke-linecap="round">
+      <path d="M104 332L154 110"/><path d="M152 338l63-224"/><path d="M208 348l65-220"/>
+      <path d="M266 342l45-206"/><path d="M326 318l20-170"/>
+    </g>
+    <g fill="#ef6f75" stroke="#cf5360" stroke-width="5">
+      <ellipse cx="140" cy="98" rx="28" ry="44" transform="rotate(-18 140 98)"/>
+      <ellipse cx="206" cy="99" rx="30" ry="45" transform="rotate(8 206 99)"/>
+      <ellipse cx="272" cy="118" rx="30" ry="46" transform="rotate(15 272 118)"/>
+      <ellipse cx="338" cy="148" rx="31" ry="47" transform="rotate(25 338 148)"/>
+      <ellipse cx="102" cy="165" rx="30" ry="46" transform="rotate(-28 102 165)"/>
+      <ellipse cx="176" cy="174" rx="31" ry="47" transform="rotate(-8 176 174)"/>
+      <ellipse cx="249" cy="185" rx="30" ry="46" transform="rotate(12 249 185)"/>
+      <ellipse cx="322" cy="220" rx="31" ry="47" transform="rotate(26 322 220)"/>
+      <ellipse cx="150" cy="252" rx="31" ry="47" transform="rotate(-14 150 252)"/>
+      <ellipse cx="235" cy="263" rx="31" ry="47" transform="rotate(8 235 263)"/>
+    </g>
+  </g>
+  <path d="M710 238l13 18 21-12-13 22 18 17-24-5-12 22-3-25-24-5 22-10z" fill="#fff1cf" opacity=".85"/>
+  <path d="M810 360c25-34 61-29 66 8 3 25-23 45-51 68-31-22-60-40-55-67 3-16 20-25 40-9Z" fill="none" stroke="#fff1cf" stroke-width="8" opacity=".7"/>
+</svg>
