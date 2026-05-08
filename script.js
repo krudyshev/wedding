@@ -1,11 +1,13 @@
 const people = {
   bride: {
-    src: 'bride.png',
+    src: 'assets/bride.png',
+    fallbackSrc: 'assets/bride-photo.svg',
     alt: 'Фото жинки',
     caption: 'главная красавица свадьбы'
   },
   groom: {
-    src: 'groom.png',
+    src: 'assets/groom.png',
+    fallbackSrc: 'assets/groom-photo.svg',
     alt: 'Фото муженёчка',
     caption: 'главный виновник торжества'
   }
@@ -19,14 +21,20 @@ const photoCaption = document.querySelector('.photo-drawer__caption');
 const confettiTrigger = document.querySelector('.confetti-trigger');
 const nameButtons = document.querySelectorAll('.name-card');
 
-function openDrawer(personKey) {
-  const person = people[personKey];
-
-  if (!person) return;
-
+function setPhoto(person) {
+  photo.dataset.fallbackSrc = person.fallbackSrc;
+  photo.dataset.fallbackApplied = 'false';
   photo.src = person.src;
   photo.alt = person.alt;
   photoCaption.textContent = person.caption;
+}
+
+function openDrawer(personKey) {
+  const person = people[personKey];
+
+  if (!person || !drawer || !backdrop || !photo || !photoCaption) return;
+
+  setPhoto(person);
   drawer.classList.remove('is-open');
   drawer.setAttribute('aria-hidden', 'false');
   backdrop.hidden = false;
@@ -41,6 +49,8 @@ function openDrawer(personKey) {
 }
 
 function closeDrawer() {
+  if (!drawer || !backdrop) return;
+
   drawer.classList.remove('is-open');
   drawer.setAttribute('aria-hidden', 'true');
   backdrop.hidden = true;
@@ -49,12 +59,22 @@ function closeDrawer() {
   nameButtons.forEach((button) => button.setAttribute('aria-expanded', 'false'));
 }
 
+function applyPhotoFallback() {
+  const fallbackSrc = photo.dataset.fallbackSrc;
+
+  if (!fallbackSrc || photo.dataset.fallbackApplied === 'true') return;
+
+  photo.dataset.fallbackApplied = 'true';
+  photo.src = fallbackSrc;
+}
+
 nameButtons.forEach((button) => {
   button.addEventListener('click', () => openDrawer(button.dataset.person));
 });
 
-closeButton.addEventListener('click', closeDrawer);
-backdrop.addEventListener('click', closeDrawer);
+closeButton?.addEventListener('click', closeDrawer);
+backdrop?.addEventListener('click', closeDrawer);
+photo?.addEventListener('error', applyPhotoFallback);
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeDrawer();
@@ -86,4 +106,4 @@ function launchConfetti() {
   }
 }
 
-confettiTrigger.addEventListener('click', launchConfetti);
+confettiTrigger?.addEventListener('click', launchConfetti);
