@@ -21,6 +21,15 @@ const photoCaption = document.querySelector('.photo-drawer__caption');
 const confettiTrigger = document.querySelector('.confetti-trigger');
 const nameButtons = document.querySelectorAll('.name-card');
 
+
+function preloadPeoplePhotos() {
+  Object.values(people).forEach((person) => {
+    const image = new Image();
+
+    image.src = person.src;
+  });
+}
+
 function setPhoto(person) {
   photo.dataset.fallbackSrc = person.fallbackSrc;
   photo.dataset.fallbackApplied = 'false';
@@ -105,5 +114,7 @@ function launchConfetti() {
     piece.addEventListener('animationend', () => piece.remove(), { once: true });
   }
 }
+
+preloadPeoplePhotos();
 
 confettiTrigger?.addEventListener('click', launchConfetti);
