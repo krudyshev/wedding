@@ -1,13 +1,19 @@
+const assetVersion = '2026-05-08-5';
+
+function versionedAsset(path) {
+  return `${path}?v=${assetVersion}`;
+}
+
 const people = {
   bride: {
-    src: 'assets/bride.png',
-    fallbackSrc: 'assets/bride-photo.svg',
+    src: versionedAsset('assets/bride-photo.svg'),
+    fallbackSrc: versionedAsset('assets/bride-photo.svg'),
     alt: 'Фото жинки',
     caption: 'главная красавица свадьбы'
   },
   groom: {
-    src: 'assets/groom.png',
-    fallbackSrc: 'assets/groom-photo.svg',
+    src: versionedAsset('assets/groom-photo.svg'),
+    fallbackSrc: versionedAsset('assets/groom-photo.svg'),
     alt: 'Фото муженёчка',
     caption: 'главный виновник торжества'
   }
@@ -20,6 +26,30 @@ const photo = document.querySelector('.photo-drawer__image');
 const photoCaption = document.querySelector('.photo-drawer__caption');
 const confettiTrigger = document.querySelector('.confetti-trigger');
 const nameButtons = document.querySelectorAll('.name-card');
+
+
+function normalizeVersion(value) {
+  return String(value ?? '').trim();
+}
+
+async function checkForSiteUpdate() {
+  try {
+    const response = await fetch(`site-version.json?ts=${Date.now()}`, { cache: 'no-store' });
+
+    if (!response.ok) return;
+
+    const data = await response.json();
+    const latestVersion = normalizeVersion(data.version);
+
+    if (!latestVersion || latestVersion === assetVersion) return;
+
+    const nextUrl = new URL(window.location.href);
+    nextUrl.searchParams.set('v', latestVersion);
+    window.location.replace(nextUrl.toString());
+  } catch (error) {
+    console.info('Не удалось проверить обновление сайта', error);
+  }
+}
 
 
 function preloadPeoplePhotos() {
@@ -116,5 +146,6 @@ function launchConfetti() {
 }
 
 preloadPeoplePhotos();
+checkForSiteUpdate();
 
 confettiTrigger?.addEventListener('click', launchConfetti);
